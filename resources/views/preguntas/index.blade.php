@@ -1,8 +1,7 @@
 @extends('layouts.app-master')
 @section('content')
-
 <div class="container">
-    <h1 class="display-4 text-center">Enquestas</h1>
+    <h1 class="display-4 text-center">Enquestadors</h1>
   </div>
 
 <div class="container">
@@ -10,26 +9,27 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Descripcio </th>
+                <th scope="col">Nom</th>
                 <th scope="col">Localitat</th>
-                <th scope="col">Data</th>
- 
+                <th scope="col">Password</th>
+                <th scope="col"></th>
             </tr>
         </thead>
 
         <?php
-
+use App\Models\Enquestador;
 $cont = 1;
-foreach ($enquestas as $key => $value) {
+foreach ($enquestadors as $key => $value) {
     $id = $value->id;
     ?>
         <form action="" method="POST">
             @csrf
-            <tr> 
+            <tr>
                 <th scope="row">{{ $cont }}</th>
-                <td>{{$value->descripcio}}</td>
+                <td>{{$value->nom}}</td>
                 <td>{{$value->localitat}}</td>
-                <td>{{$value->data}}</td>
+                <td>{{$value->password}}</td>
+                <td ><a  class=" btn btn-outline-success" href="{{ route('enquestadors.edit', $value->id) }}">Editar</a></td>
 
             </tr>
                 <tbody>

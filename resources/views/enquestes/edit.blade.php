@@ -45,5 +45,56 @@
         <button type="submit" class="btn btn-danger">Eliminar</button>
     </form>
 </div>
+
+
+
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Preguntas</th>
+                <th scope="col">Numero </th>
+                <th scope="col">Enunciat</th>
+
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <?php
+
+
+foreach ($preguntas as $key => $value) {
+    $id = $value->id;
+    ?>
+        <form action="" method="POST">
+            @csrf
+            <tr> 
+                <td></td>
+                <td>{{$value->numero}}</td>
+                <td>{{$value->enunciat}}</td>
+                <td ><a  class=" btn btn-outline-success" href="{{ route('preguntas.edit', $value->id) }}">Editar</a></td>
+
+            </tr>
+                <tbody>
+
+        </form>
+        <?php
+        echo "<br>";
+        echo "<br>";
+
+
+}
+
+
+
+
+?>
+        </tbody>
+    </table>
+</div>
+
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection

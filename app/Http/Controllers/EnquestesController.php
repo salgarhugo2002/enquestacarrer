@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Enquesta;
 use Illuminate\Http\Request;
+use App\Models\pregunta;
 
 class EnquestesController extends Controller
 {
@@ -52,8 +53,9 @@ class EnquestesController extends Controller
      */
     public function edit(string $id)
     {
+        $preguntas = pregunta::all();
         $enquestas = Enquesta::all();
-        return view('enquestes.edit', compact('enquestas','id'));
+        return view('enquestes.edit', compact('enquestas','id','preguntas'));
     }
 
     /**
@@ -68,7 +70,9 @@ class EnquestesController extends Controller
             $en->data = $_POST['data'];
     
             $en->update();
-            return 'saved';
+
+            $enquestas = Enquesta::all();
+            return view('enquestes.index', compact('enquestas'));
         }
     }
 
