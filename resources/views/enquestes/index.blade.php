@@ -13,7 +13,7 @@
                 <th scope="col">Descripcio </th>
                 <th scope="col">Localitat</th>
                 <th scope="col">Data</th>
- 
+                <th scope="col"></th>
             </tr>
         </thead>
 
@@ -30,6 +30,7 @@ foreach ($enquestas as $key => $value) {
                 <td>{{$value->descripcio}}</td>
                 <td>{{$value->localitat}}</td>
                 <td>{{$value->data}}</td>
+                <td ><a  class=" btn btn-outline-success" href="{{ route('enquestas.edit', $value->id) }}">Editar</a></td>
 
             </tr>
                 <tbody>

@@ -74,7 +74,7 @@ foreach ($preguntas as $key => $value) {
                 <td></td>
                 <td>{{$value->numero}}</td>
                 <td>{{$value->enunciat}}</td>
-                <td ><a  class=" btn btn-outline-success" href="{{ route('preguntas.edit', $value->id) }}">Editar</a></td>
+
 
             </tr>
                 <tbody>
