@@ -5,11 +5,11 @@
 
 <div class="container">
     <?php
-    foreach ($enquestadors as $key => $value) {
+    foreach ($enquestas as $key => $value) {
 
         if ($value->id == $id) {
     ?>
-            <form action="/enquestadors/{{$value->id}}/" method="post">
+            <form action="/enquestas/{{$value->id}}/" method="post">
 
                 @csrf
                 <br>
@@ -18,7 +18,7 @@
                     <legend>Editar un enquestador</legend>
                     <div class="form-group">
                         <label for="nom">Nom:</label>
-                        <input type="text" class="form-control" name="nom" id="nom" value="{{$value->nom}}">
+                        <input type="text" class="form-control" name="descripcio" id="descripcio" value="{{$value->descripcio}}">
                     </div>
                     <div class="form-group">
                         <label for="localitat">Localitat:</label>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" class="form-control" name="password" id="pass" value="{{$value->password}}">
+                        <input type="data" class="form-control" name="data" id="pass" value="{{$value->data}}">
                     </div>
                     <button type="submit" class="btn btn-primary">Editar</button>
                 </fieldset>
@@ -37,7 +37,7 @@
     }
     ?>
 
-    <form action="{{ route('enquestadors.delete', $value->id) }}" method="POST">
+    <form action="{{ route('enquestas.delete', $value->id) }}" method="POST">
         <!-- Agrega la directiva CSRF -->
         @csrf
         <!-- Agrega el método DELETE -->

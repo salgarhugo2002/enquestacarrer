@@ -50,13 +50,13 @@ Route::controller(EnquestadorsController::class)->group(function () {
 });
 
 Route::controller(EnquestesController::class)->group(function () {
-    Route::get('/enquestas', 'index');
-    Route::get('/enquestascreate', 'create');
+    Route::get('/enquestas', 'index')->name('enquestas.index');
+    Route::get('/enquestas/create', 'create');
     Route::post('/enquestas', 'store');
     Route::get('/enquestas/{id}', 'show');
-    Route::get('/enquestas/{id}/edit', 'edit');
+    Route::get('/enquestas/{id}/edit', 'edit')->name('enquestas.edit');
     Route::put('/enquestas/{id}', 'update');
-    Route::delete('/enquestas/{id}', 'delete');
+    Route::delete('/enquestas/{id}', 'delete')->name('enquestas.delete');
 });
 
 Route::controller(OpcionsController::class)->group(function () {
@@ -68,6 +68,7 @@ Route::controller(OpcionsController::class)->group(function () {
     Route::put('/opcions/{id}', 'update');
     Route::delete('/opcions/{id}', 'delete');
 });
+
 Route::controller(TipusPreguntaController::class)->group(function () {
     Route::get('/tipuspregunta', 'index');
     Route::get('/tipuspregunta/create', 'create');

@@ -13,20 +13,24 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Crear
                         </a>
+                        <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/enquestas/create">Enquesta </a></li>
+                                    <li><a class="dropdown-item" href="/enquestadors/create">Enquestador</a></li>
+                                    <li><a class="dropdown-item" href="/preguntas/create">Pregunta</a></li>
+                                </ul>
+                    </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/enquestadors">Enquestadors</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/enquestas">Enquestas</a>
                         </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link disabled"></a>
                     </li>

@@ -35,9 +35,9 @@ class EnquestadorsController extends Controller
         $en->password = $_POST['password'];
 
         $en->save();
-        return 'saved';
+        $enquestadors = Enquestador::all();
+        return view('enquestadors.index', compact('enquestadors'));
     }
-
     /**
      * Display the specified resource.
      */

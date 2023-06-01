@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Enquesta;
 use Illuminate\Http\Request;
 
 class EnquestesController extends Controller
@@ -11,7 +11,8 @@ class EnquestesController extends Controller
      */
     public function index()
     {
-        //
+        $enquestas = Enquesta::all();
+        return view('enquestes.index', compact('enquestas'));
     }
 
     /**
@@ -19,7 +20,7 @@ class EnquestesController extends Controller
      */
     public function create()
     {
-        //
+       return view('enquestes.create');
     }
 
     /**
@@ -27,7 +28,14 @@ class EnquestesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $en = new Enquesta();
+        $en->descripcio = $_POST['descripcio'];
+        $en->localitat = $_POST['localitat'];
+        $en->data = $_POST['data'];
+
+        $en->save();
+        $enquestas = Enquesta::all();
+        return view('enquestes.index', compact('enquestas'));
     }
 
     /**
@@ -35,7 +43,8 @@ class EnquestesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $enquestas = Enquesta::all();
+        return view('enquestes.show', compact('enquestas','id'));
     }
 
     /**
@@ -43,7 +52,8 @@ class EnquestesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $enquestas = Enquesta::all();
+        return view('enquestes.edit', compact('enquestas','id'));
     }
 
     /**
@@ -51,14 +61,24 @@ class EnquestesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        {
+            $en = Enquesta::where('id', '=', $id)->first();
+            $en->descripcio = $_POST['descripcio'];
+            $en->localitat = $_POST['localitat'];
+            $en->data = $_POST['data'];
+    
+            $en->update();
+            return 'saved';
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(string $id)
     {
-        //
+        $enquesta = Enquesta::findOrFail($id);
+        $enquesta ->delete();
+        return redirect()->route('enquestas.index');
     }
 }

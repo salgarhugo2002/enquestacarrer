@@ -2,24 +2,24 @@
 
 @section('content')
     <div class="container" style="margin-top: 20px;">
-    <form action="/enquestadors" method="post">
+    <form action="/enquestas" method="post">
             @csrf
             <fieldset>
-                <legend>Donar d'alta un enquestador</legend>
+                <legend>Crea la teva enquesta</legend>
                 <fieldset>
 
                 
                 <div class="form-group">
-                    <label for="nom">Nom:</label>
-                    <input type="text" class="form-control" name="nom" id="nom">
+                    <label for="nom">Descripcio :</label>
+                    <input type="text" class="form-control" name="descripcio" id="descripcio">
                 </div>
                 <div class="form-group">
                     <label for="localitat">Localitat:</label>
                     <input type="text" class="form-control" name="localitat" id="localitat">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <label for="password">Data:</label>
+                    <input type="text" class="form-control" name="data" id="data">
                 </div>
                 <button type="submit" class="btn btn-primary">Crear</button>
             </fieldset>
